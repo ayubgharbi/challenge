@@ -1,26 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from '../user.service';
+import 'rxjs/add/operator/map'
+
 
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
 
-  readonly ROOT_URL = 'https://reqres.in'
-
   users: any;
+  user: any;
 
-  constructor(private http: HttpClient, private user: UserService) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.users = [];
   }
 
-  getUsers() {
-    this.users = this.http.get(this.ROOT_URL + '/users?page=2')  
+  public getUsers() {
+    this.http.get('https://reqres.in/api/users').subscribe(res => {
+      this.users = res["data"];
+      // data contains actual array of users
+    });
   }
 
+  public createUsers() {
+    this.http.post('https://reqres.in/api/users').subscribe(res => {
+      this.user = res["data"];
+      // data contains actual array of users
+    });
+  }
+  
 }
+  
+

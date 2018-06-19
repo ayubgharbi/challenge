@@ -1,5 +1,20 @@
-<button (click)="getUsers()">list users</button>
-
-<div *ngFor='let user of users | async'>
-    {{ user | json }}
+<div class="container">
+        <button (click)="getUsers()">list users</button>
+        <div class="row">
+        <div *ngFor="let user of users">
+            
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" [src]="user.avatar" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ user.first_name + user.last_name }}</h5>
+                                <a href="#" class="btn btn-primary">user details</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
 </div>
+
+
