@@ -1,13 +1,13 @@
 <form (submit)="loginUser($event)">
-    <div class="input">
-      <label>Email</label>
-      <input type="email">
-    </div>
-    <div class="input">
-      <label>Password</label>
-      <input type="password">
-    </div>
-    <div class="input">
-      <input type="submit" value="Login">
-    </div>
-  </form>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control">
+  </div>
+  <div class="form-group">
+    <input id="login-btn" type="submit" value="Login">
+  </div>
+</form>

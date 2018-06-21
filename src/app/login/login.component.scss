@@ -1,0 +1,47 @@
+:host {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.input {
+	position: relative;
+}
+
+div.input label {
+	position: absolute;
+	top: 0;
+	transform: translateY(-50%);
+	left: 10px;
+	background: white;
+	padding: 5px 2px;
+}
+
+div.input input {
+	padding: 10px 20px;
+	font-size: 25px;
+	outline: 0;
+}
+
+div.input {
+	margin-top: 20px;
+}
+
+#login-btn {
+    background: transparent;
+	padding: 10px;
+	margin: 20px auto 30px;
+	border-radius: 5px;
+	border: 2px solid#92A4A5; 
+	color: #FF4400;
+	font-weight: bold;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+label {
+	font-weight: bold;
+}
+

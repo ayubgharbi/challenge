@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
@@ -10,12 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { AuthguardGuard } from './authguard.guard';
 import { UserService } from './user.service';
-import { HeaderComponent } from './header/header.component'
+import { HeaderComponent } from './header/header.component';
+import { UserDetailComponent } from './user-detail/user-detail.component'
+import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes:Routes = [
   {
-    path: 'login',
-    component: LoginComponent
+    path: '',
+    component: HomeComponent
   },
   {
     path: 'users',
@@ -23,8 +25,13 @@ const appRoutes:Routes = [
     component: UsersComponent
   },
   {
-    path: '',
-    component: HomeComponent
+    path: 'login',
+    component: LoginComponent
+  },
+  
+  {
+    path: 'detail/:id',
+    component: UserDetailComponent
   }
 ]
 
@@ -34,13 +41,16 @@ const appRoutes:Routes = [
     LoginComponent,
     HomeComponent,
     UsersComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserDetailComponent,
+    FooterComponent, 
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule, 
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [UserService, AuthguardGuard],
   bootstrap: [AppComponent]
